@@ -1,4 +1,5 @@
 #include "obras.h"
+#include "literatura.h"
 #include "esculturas.h"
 #include "pinturas.h"
 #include "arquitectonico.h"
@@ -23,7 +24,7 @@ void imprimirMenu2();
 void imprimirLista(vector<Obra> );
 
 int main(int argc, char* argv[]){
-	vector<Obra> obras;
+	vector<Obra> lista;
 	int opcionMenu, opAgregar, opListar;
 /*
 	lista.push_back(a);
@@ -32,23 +33,85 @@ int main(int argc, char* argv[]){
 
 	lista.push_back(Racional(numerador,denominador));
 	Square squa(Point(10, 3), 12);
+
+	myvector.erase(myvector.begin()+posicion)
 */
 	do{
 		
 		imprimirMenu();
 		cin >> opcionMenu;
-		
+
 
 		if(opcionMenu == 1){
 
 			cout<< "---------------------AGREGAR OBRA---------------------"<< endl;
 			imprimirMenu2();
 			cin >> opAgregar;
-            
+			string nombre, autor, fecha;
+
+			if(opAgregar>0 && opAgregar<4){
+				cout<< "Ingresar el nombre de la obra: ";
+				cin >>  nombre;
+				cout<< "Ingresar el nombre del autor/ artista: ";
+				cin >> autor;
+				cout<< "Ingresar la fecha de creacion: ";
+				cin >> fecha;
+			}
+
+			string genero, epoca;
+
+			double peso;
+			string material1;
+
+			string lienzo, tecnica;
+
+			string terreno;
+
+			if(opAgregar == 1){
+	            cout<< "\tLiteratura"<<endl;
+	            cout<< "Ingresar el genero: ";
+	            cin >> genero;
+	            cout<< "Ingresar la epoca: ";
+	            cin >> epoca;
+	            Literatura lit(nombre, autor, fecha, genero, epoca);
+	            lista.push_back(lit);
+	        }else if(opAgregar == 2){
+	        	cout<< "\tEscultura"<<endl;
+	        	cout<< "Ingresar el peso: ";
+	            cin >> peso;
+	            cout<< "Ingresar el material: ";
+	            cin >> material1;
+	            Escultura esc (nombre, autor, fecha, peso, material1);
+	            lista.push_back(esc);
+
+	        }else if(opAgregar == 3){
+	        	cout<< "\tPintura"<<endl;
+	        	cout<< "\tEscultura"<<endl;
+	        	cout<< "Ingresar el material del lienzo: ";
+	            cin >> lienzo;
+	            cout<< "Ingresar la tecnica: ";
+	            cin >> tecnica;
+	            Pintura pint (nombre, autor, fecha, lienzo, tecnica);
+	            lista.push_back(pint);
+
+	        }else if(opAgregar == 4){
+	        	cout<< "\tDiseno Arquitectonico"<<endl;
+	        	cout<< "Ingresar el tipo de terreno: ";
+	            cin >> terreno;
+	            Arquitectonico arc(nombre, autor, fecha, terreno);
+	            lista.push_back(arc);
+	        }
+	        
+
         }else if(opcionMenu == 2){
+        	imprimirLista(lista);
         	
         }else if(opcionMenu == 3){
-        	
+        	int pos;
+        	imprimirLista(lista);
+        	cout<< "Ingresar el numero de la obra que desea Transferir: ";
+        	cin >> pos;
+        	lista.erase(lista.begin()+pos);
         }
  	}while(opcionMenu!=4);
 	return 0;
@@ -59,7 +122,7 @@ void imprimirMenu(){
     cout<< "Ingresar opcion del menu:"<< endl;
     cout<< "1. Agregar obras"<<endl;
     cout<< "2. Reporteria"<<endl;
-    cout<< "3. Eliminar las obras"<<endl;
+    cout<< "3. Transferir las obras"<<endl;
     cout<< "4. Salir"<<endl;
 
 }

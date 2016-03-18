@@ -11,6 +11,6 @@ Literatura::~Literatura(){
 }
 string Literatura::toString()const{
 	stringstream ss;
-	ss << "Obra Literaria \n	" Obra::toString();
+	ss << "Obra Literaria \n	" << Obra::toString();
 	return ss.str();
 }

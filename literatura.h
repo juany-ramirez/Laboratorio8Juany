@@ -9,5 +9,5 @@ class Literatura:public Obra{
   public:
 	Literatura(string, string, string, string, string);
 	virtual ~Literatura();
-	virtual string toString()const{
+	virtual string toString()const;
 };

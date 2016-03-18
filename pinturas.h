@@ -5,9 +5,9 @@
 using std::string;
 
 class Pintura:public Obra{
-	string material, lienzo;
+	string lienzo, tecnica;
   public:
-	Pintura(string, string, string, string, string);
+	Pintura(string, string, string, string, string );
 	virtual ~Pintura();
 	virtual string toString()const;
 };

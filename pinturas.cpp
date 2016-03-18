@@ -5,7 +5,7 @@
 using std::string;
 using std::stringstream;
 
-Pintura::Pintura(string nombre, string autor,string fecha, string material, string lienzo): Obra(nombre, autor, fecha), material(material),lienzo(lienzo) {
+Pintura::Pintura(string nombre, string autor,string fecha, string lienzo, string tecnica): Obra(nombre, autor, fecha),lienzo(lienzo),tecnica(tecnica) {
 }
 Pintura::~Pintura(){
 }
