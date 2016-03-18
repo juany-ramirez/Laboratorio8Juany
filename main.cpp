@@ -25,19 +25,11 @@ void imprimirLista(vector<Obra> );
 
 int main(int argc, char* argv[]){
 	vector<Obra> lista;
+	vector<Obra> transferencias;
 	int opcionMenu, opAgregar, opListar;
-/*
-	lista.push_back(a);
-	lista.push_back(b);
-	lista.push_back(c);
-
-	lista.push_back(Racional(numerador,denominador));
-	Square squa(Point(10, 3), 12);
-
-	myvector.erase(myvector.begin()+posicion)
-*/
 	do{
 		
+		cout << endl;
 		imprimirMenu();
 		cin >> opcionMenu;
 
@@ -49,7 +41,7 @@ int main(int argc, char* argv[]){
 			cin >> opAgregar;
 			string nombre, autor, fecha;
 
-			if(opAgregar>0 && opAgregar<4){
+			if(opAgregar>0 && opAgregar<5){
 				cout<< "Ingresar el nombre de la obra: ";
 				cin >>  nombre;
 				cout<< "Ingresar el nombre del autor/ artista: ";
@@ -104,13 +96,22 @@ int main(int argc, char* argv[]){
 	        
 
         }else if(opcionMenu == 2){
-        	imprimirLista(lista);
-        	
+        	cout<< "---------------------LISTAR---------------------"<< endl;
+		    cout<< "Ingresar opcion del menu:"<< endl;
+		    cout<< "1. Obras del museo"<<endl;
+		    cout<< "2. Obras transferidas"<<endl;
+		    cin >> opListar;
+		    if(opListar == 1){
+        		imprimirLista(lista);
+			} else if(opListar == 2){
+				imprimirLista(transferencias);
+			}       	
         }else if(opcionMenu == 3){
         	int pos;
         	imprimirLista(lista);
         	cout<< "Ingresar el numero de la obra que desea Transferir: ";
         	cin >> pos;
+        	transferencias.push_back(lista.at(pos));
         	lista.erase(lista.begin()+pos);
         }
  	}while(opcionMenu!=4);
@@ -138,7 +139,7 @@ void imprimirMenu2(){
 
 void imprimirLista(vector<Obra> arreglo){
 	for (int i = 0; i < arreglo.size(); ++i){
-		cout << i+1 << ". ";
+		cout << i << ". ";
 		cout << arreglo.at(i).toString();
 		cout << endl;
 	}

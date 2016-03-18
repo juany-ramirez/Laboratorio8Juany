@@ -11,6 +11,6 @@ Obra::~Obra(){}
 
 string Obra::toString()const{
 	stringstream ss;
-	ss << nombre << " - Por "  << autor << " Creacion:  " << fecha;
+	ss << nombre << " - Por "  << autor << " - Creacion:  " << fecha;
 	return ss.str();
 }
