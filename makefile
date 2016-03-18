@@ -1,4 +1,4 @@
-museo:	obras.o esculturas.o pinturas.o arquitectonico.o literatura.o main.o
+museo.exe:	obras.o esculturas.o pinturas.o arquitectonico.o literatura.o main.o
 	g++ obras.o esculturas.o pinturas.o arquitectonico.o literatura.o main.o -o museo
 
 main.o:	main.cpp obras.h esculturas.h pinturas.h arquitectonico.h literatura.h 
